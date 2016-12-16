@@ -5,9 +5,9 @@
 
 	module.controller("ToDoController", ctlr);
 
-	ctlr.$inject = ["$scope"];
+   ctlr.$inject = ["$scope", "authorsRepo"];
 
-	function ctlr ($scope){
-		$scope.todos = [{desc:'Grocery shopping', done:false}, {desc:'Bath dog', done:false}, {desc:'Mow lawn', done:true}];
+	function ctlr ($scope, todoRepo){
+      $scope.todos = todoRepo.getAll();
 	}
 }())
