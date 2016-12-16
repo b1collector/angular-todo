@@ -5,9 +5,13 @@
 
 	module.controller("ToDoController", ctlr);
 
-   ctlr.$inject = ["$scope", "authorsRepo"];
+   ctlr.$inject = ["$scope", "todoRepo"];
 
 	function ctlr ($scope, todoRepo){
-      $scope.todos = todoRepo.getAll();
+      $scope.todos = [];
+
+      todoRepo.getAll().then(function(data){
+      	$scope.todos = data;
+      });
 	}
 }())
