@@ -1,10 +1,10 @@
 <html>
    <head>
-
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.js"></script>
       <script src="/app/todo.module.js"></script>
+      <script src="/app/todo.controller.js"></script>
    </head>
-   <body ng-app="ToDoList" ng-init="todos=[{desc:'Grocery shopping', done:false}, {desc:'Bath dog', done:false}, {desc:'Mow lawn', done:true}]">
+   <body ng-app="ToDoList" ng-controller="ToDoController">
       <h1>To Do List</h1>
       <ul>
          <li ng-repeat="todo in todos">
