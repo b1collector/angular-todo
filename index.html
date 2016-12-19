@@ -5,13 +5,13 @@
       <script src="/app/todo.controller.js"></script>
       <script src="/app/todoRepo.service.js"></script>
       <script src="/app/todo.service.js"></script>
+      <script src="/app/todo.directive.js"></script>
    </head>
    <body ng-app="ToDoList" ng-controller="ToDoController">
       <h1>To Do List</h1>
       <ul>
          <li ng-repeat="todo in todos">
-            <em ng-style="todoStyle(todo.done)" ng-bind="todo.desc"></em>
-            <button ng-if="!todo.done" ng-click="markAsDone($index)">Complete</button>
+            <todo-item todo-task="todo"></todo-item>
          </li>
       </ul>
    </body>
