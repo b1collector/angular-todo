@@ -5,11 +5,9 @@
 
 	module.controller("ToDoController", ctlr);
 
-   ctlr.$inject = ["$scope", "todoRepo"];
+   ctlr.$inject = ["$scope", "todoRepo", "todo"];
 
-   var doneStyle = {"text-decoration":"line-through"};
-
-	function ctlr ($scope, todoRepo){
+	function ctlr ($scope, todoRepo, todoLogic){
       $scope.todos = [];
 
       todoRepo.getAll().then(function(data){
@@ -17,12 +15,9 @@
       });
 
       $scope.markAsDone = function(index){
-         $scope.todos[index].done = true;
+         todoLogic.markAsDone($scope.todos[index]);
       };
 
-      $scope.todoStyle = function (done){
-         return done ? doneStyle : {};
-      };
-
+      $scope.todoStyle = todoLogic.todoStyle;
 	}
 }())
